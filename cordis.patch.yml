@@ -1,0 +1,23 @@
+# tey-mcp bundle 层：把工具总线插进当前 profile。
+# 由 dsh plugin add / plugin_manager install_bundle 自动装配（包声明 dsh.bundle.patch），
+# 手改这里的 config 即可调指纹过期、单次取用工具数与外部 MCP 服务器。
+- insert:
+    - id: tey-mcp
+      name: 'tey-mcp'
+      config:
+        # 指纹有效期（秒）：过期后 tey_call / tey_batch 必须重新 tey_fetch
+        ttlSeconds: 1800
+        # 闲置多久作废（秒）：一段时间没调用就要求重新取用
+        idleSeconds: 900
+        # 一次 tey_fetch 至少 / 最多给多少个工具（闲置模型建议 30-50）
+        fetchMin: 30
+        fetchMax: 50
+        # tey_batch 单次最多几个调用
+        maxBatch: 12
+        # 单个工具返回值最大字符数，超出截断并标注
+        resultMaxChars: 20000
+        # 关掉某些工具组（组 id 见 tey_status）
+        packsDisabled: []
+        # 外部 MCP 服务器（NVIDIA RAG / 任意 FastMCP）；stdio 用 command/args，http 用 url
+        # 密钥用环境变量名引用，别把明文抄进配置：env: { NVIDIA_API_KEY: !!js process.env.NVIDIA_API_KEY }
+        mcpServers: []

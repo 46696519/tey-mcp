@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "tey-mcp",
+    "description": "DSH 集成工具总线：274 个工具分 12 组，只常驻 7 个元工具。一次取 30-50 个并领一张指纹（带过期与闲置时限），再靠 tey_call / tey_batch 执行。自带 skills，零运行依赖。"
+  }
+}

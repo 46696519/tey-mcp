@@ -1,0 +1,22 @@
+# 依赖与构建
+node_modules/
+dist/
+*.tgz
+*.zip
+
+# 校验/自检产生的临时物
+.validate-tmp/
+*.log
+
+# 本地研究草稿与解包出来的官方文档（体积大，本机留着即可）
+.research/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agent 工作区痕迹
+.agent-teams/

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "tey-mcp",
+    "description": "All-in-one tool bus for DSH: 274 tools in 12 packs behind 7 resident meta tools. Fetch 30-50 tools at a time with a fingerprint (TTL + idle expiry), then run them via tey_call / tey_batch. Ships its own skills; zero runtime dependencies."
+  }
+}

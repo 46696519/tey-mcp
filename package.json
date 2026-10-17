@@ -1,0 +1,65 @@
+{
+  "name": "tey-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TEY 工具总线：把几百个工具按组装进 DeepSeek Harness，指纹 + 过期时间门控，一次只取 30-50 个工具用；自带技能与外部 MCP 桥接，装一个插件就够用。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/46696519/tey-mcp.git"
+  },
+  "homepage": "https://github.com/46696519/tey-mcp",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "engines": {
+    "dsh": ">=0.2.0-rc.2"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "mcp",
+    "tools",
+    "tool-bus",
+    "fingerprint",
+    "skills"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./skills/tey-mcp/SKILL.md": "./skills/tey-mcp/SKILL.md",
+    "./skills/tey-toolbox/SKILL.md": "./skills/tey-toolbox/SKILL.md",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "src/",
+    "skills/",
+    "scripts/",
+    "locale/",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "skills": [
+      "./skills/tey-mcp/SKILL.md",
+      "./skills/tey-toolbox/SKILL.md"
+    ]
+  },
+  "icon": "./icon.svg",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "count": "node scripts/validate.mjs --count",
+    "smoke": "node scripts/validate.mjs --smoke",
+    "selftest": "node scripts/selftest.mjs",
+    "check": "node scripts/validate.mjs --smoke && node scripts/selftest.mjs"
+  }
+}
